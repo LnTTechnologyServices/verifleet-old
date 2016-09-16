@@ -1,0 +1,31 @@
+.moon-gauge {
+  position: relative;
+  display: inline-block;
+  background-color: #E6EAED;
+}
+
+.moon-gauge-text {
+  position: absolute;
+  text-align: center;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.moon-gauge svg {
+  margin-bottom: -40px;
+}
+
+.moon-gauge-value {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.moon-gauge-text {
+  font-family: Oxygen;
+  font-weight: 100;
+}
+
+.moon-gauge-title {
+  font-size: 16px;
+}

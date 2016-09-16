@@ -1,0 +1,106 @@
+<md-card id="loginCard">
+  <md-toolbar></md-toolbar>
+  <md-card-content layout="column">
+    <div class="image-div">
+      <img class="logo" ng-src="{{vm.logo}}" alt="{{vm.alt}}"></img>
+      <img class="tagline" ng-src="{{vm.tagline}}"></img>
+    </div>
+
+    <!--  login form -->
+    <div ng-if="vm.showState=='login'">
+      <form class="login-form" layout="column" layout-align="start center" ng-submit="vm.login($event)">
+        <md-input-container class="input-email">
+          <label>Email</label>
+          <input ng-model="vm.user.email" ng-required="true">
+        </md-input-container>
+        <md-input-container class="input-password">
+          <label>Password</label>
+          <input ng-model="vm.user.password" type="password" ng-required="true">
+        </md-input-container>
+        <!-- <input type="submit" hidden /> -->
+        <label class="error-label" ng-if="vm.error">{{vm.error}}</label>
+        <div class="form-button">
+          <md-button type="submit" class="md-primary md-raised">Login</md-button>
+        </div>
+      </form>
+    </div>
+
+    <!--  reset password form -->
+    <div ng-if="vm.showState=='reset'">
+      <form class="reset-form" layout="column" layout-align="start center" ng-submit="vm.reset($event)">
+        <md-input-container class="input-email">
+          <label>Email</label>
+          <input ng-model="vm.user.email" ng-required="true">
+        </md-input-container>
+        <!-- <input type="submit" hidden /> -->
+        <label class="error-label" ng-if="vm.error">{{vm.error}}</label>
+        <div class="form-button">
+          <md-button type="submit" class="md-primary md-raised">Reset Password</md-button>
+        </div>
+      </form>
+    </div>
+
+    <!--  register form -->
+    <div ng-if="vm.showState=='register'">
+      <form class="register-form" layout="column" layout-align="start center" ng-submit="vm.register($event)" name="registerForm">
+        <md-input-container class="input-name">
+          <label>Name</label>
+          <input name="username" ng-model="vm.user.name" required>
+        </md-input-container>
+        <md-input-container class="input-email">
+          <label>Email</label>
+          <input ng-model="vm.user.email" required>
+        </md-input-container>
+        <md-input-container class="input-password">
+          <label>Password</label>
+          <input name="password" ng-model="vm.user.password" type="password" minlength="8" required>
+        </md-input-container>
+        <div class="form-button">
+          <md-button type="submit" class="md-primary md-raised">Register</md-button>
+        </div>
+      </form>
+    </div>
+
+  </md-card-content>
+
+  <md-card-actions layout="row" layout-align="space-around center">
+    <md-button ng-if="vm.showState !== 'login'" ng-click="vm.showState='login'">Login</md-button>
+    <md-button ng-if="vm.showState !== 'register'" ng-click="vm.showState='register'">Register Account</md-button>
+    <md-button ng-if="vm.showState !== 'reset'" ng-click="vm.showState='reset'">Reset Password</md-button>
+  </md-card-actions>
+
+  <md-progress-linear ng-if="vm.loading" md-mode="indeterminate"></md-progress-linear>
+</md-card>
+
+<md-card class='fade login-notification login-card-success' ng-if="vm.registerSuccess && vm.showState == 'register'">
+  <md-card-content>
+    <div layout="row">
+      <div layout="column" layout-align="center">
+        <ng-md-icon size="32" icon="check_circle"></ng-md-icon>
+      </div>
+      <p>Registered successfully. Check your email to verify your account!</p>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class='fade login-notification login-card-error' ng-if="vm.loginError && vm.showState == 'login'">
+  <md-card-content>
+    <div layout="row">
+      <div layout="column" layout-align="center">
+        <ng-md-icon size="32" icon="error"></ng-md-icon>
+      </div>
+      <p>{{vm.loginError}}</p>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class='fade login-notification login-card-error' ng-if="vm.registerError && vm.showState == 'register'" id="loginErrorCard">
+  <md-card-content>
+    <div layout="row">
+      <div layout="column" layout-align="center">
+        <ng-md-icon size="32" icon="error"></ng-md-icon>
+      </div>
+      <p>{{vm.registerError}}</p>
+    </div>
+  </md-card-content>
+</md-card>

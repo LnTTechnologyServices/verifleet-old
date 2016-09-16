@@ -1,0 +1,67 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 sidebar-max-width parkerSideNav" style="position: fixed" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" layout-fill>
+  <md-content class="parker-slate" flex layout="column" layout-align="space-between stretch">
+    <div layout="column" layout-align="start">
+      <md-button ui-sref="map" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span class="icon icon-search"></span>
+          <span>Lookup</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="home" ui-sref-active="{'active-controller': 'controller','active':'home','active-gateway':'gateway'}">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span class="icon icon-list-menu"></span>
+          <span>Browse</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="trends" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center" style="color:#424242">
+          <span class="icon icon-trends"></span>
+          <span>Trends</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="logs" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span class="icon icon-activity-logs"></span>
+          <span>Logs</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="reports" ui-sref-active="active" disabled>
+        <a class="sidebar-font" layout="column" layout-align="center center" style="color:#424242">
+          <icon class="icon icon-download"></icon>
+          <span>Reports</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="users" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span class="icon icon-users"></span>
+          <span>Users</span>
+        </a>
+      </md-button>
+
+
+    </div>
+    <div layout="column" layout-align="start">
+      <md-button ui-sref="docs" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span>Example</span>
+        </a>
+      </md-button>
+
+      <md-button ui-sref="account" ui-sref-active="active">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span>Account</span>
+        </a>
+      </md-button>
+      <md-button ng-click="vm.logout()">
+        <a class="sidebar-font" layout="column" layout-align="center center">
+          <span>Logout</span>
+        </a>
+      </md-button>
+    </div>
+  </md-content>
+</md-sidenav>
